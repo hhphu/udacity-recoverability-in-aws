@@ -1,0 +1,15 @@
+mysql>
+mysql> INSERT INTO students (name, email, enrollment_date)
+    -> VALUES ('Alan smith', 'alan.smith@example.com', '2027-01-21');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from students;
++----+------------+------------------------+-----------------+
+| id | name       | email                  | enrollment_date |
++----+------------+------------------------+-----------------+
+|  1 | John Doe   | john.doe@example.com   | 2024-11-21      |
+|  2 | Alan smith | alan.smith@example.com | 2027-01-21      |
++----+------------+------------------------+-----------------+
+2 rows in set (0.01 sec)
+
+mysql>

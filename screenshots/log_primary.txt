@@ -1,0 +1,60 @@
+ubuntu@ip-10-1-10-184:~$ mysql -u admin -p -h udacity.cyg3qxh8h9co.us-east-1.rds.amazonaws.com
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 35
+Server version: 8.0.39 Source distribution
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| udacity            |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> use udacity;
+Database changed
+mysql> CREATE TABLE students (
+    ->     id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     name VARCHAR(100) NOT NULL,
+    ->     email VARCHAR(100) UNIQUE NOT NULL,
+    ->     enrollment_date DATE NOT NULL
+    -> );
+Query OK, 0 rows affected (0.13 sec)
+
+mysql> INSERT INTO students (name, email, enrollment_date)
+    -> VALUES ('John Doe', 'john.doe@example.com', '2024-11-21');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> show tables;
++-------------------+
+| Tables_in_udacity |
++-------------------+
+| students          |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> select * form students;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'form students' at line 1
+mysql> clear
+mysql> select * from students;
++----+----------+----------------------+-----------------+
+| id | name     | email                | enrollment_date |
++----+----------+----------------------+-----------------+
+|  1 | John Doe | john.doe@example.com | 2024-11-21      |
++----+----------+----------------------+-----------------+
+1 row in set (0.00 sec)
+
+mysql>
